@@ -1,0 +1,21 @@
+// app.component.scss
+@import '../assets/scss/variables';
+@import '../assets/scss/mixins';
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  background-color: $primary-color;
+
+  .main-content {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 400px;
+    height: 100%;
+    border-left: 1px solid $secondary-color;
+  }
+}

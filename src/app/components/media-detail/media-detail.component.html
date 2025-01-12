@@ -1,0 +1,14 @@
+<div class="media-detail" *ngIf="selectedItem">
+    <div class="media-image">
+      <img [src]="selectedItem.largeImageUrl" [alt]="selectedItem.title">
+    </div>
+    <div class="media-info">
+      <h2>{{ selectedItem.title }}</h2>
+      <div class="meta-info">
+        <span>{{ selectedItem.type }}</span>
+        <span>{{ selectedItem.category }}</span>
+        <span>{{ selectedItem.releaseDate | date:'yyyy.MM.dd' }}</span>
+      </div>
+      <p class="description">{{ selectedItem.description }}</p>
+    </div>
+  </div>

@@ -1,0 +1,40 @@
+// _mixins.scss
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  @mixin hover-effect {
+    transition: background-color $transition-duration ease;
+    
+    &:hover {
+      background-color: $hover-bg-color;
+    }
+  }
+  
+  @mixin selected-state {
+    background-color: $selected-bg-color;
+    border-left: 3px solid $accent-color;
+  }
+  
+  @mixin scrollbar {
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background: $primary-color;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: $secondary-color;
+      border-radius: $border-radius;
+    }
+  }

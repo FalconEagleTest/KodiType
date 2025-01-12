@@ -1,0 +1,47 @@
+
+// media-item.component.scss
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.media-item {
+  @include flex-between;
+  padding: $spacing-md;
+  cursor: pointer;
+  @include hover-effect;
+
+  &.selected {
+    @include selected-state;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $accent-color;
+  }
+
+  .media-info {
+    h3 {
+      margin: 0;
+      color: $text-color;
+      font-size: 1.1em;
+    }
+
+    p {
+      margin: $spacing-xs 0 0;
+      color: darken-color($text-color, 30%);
+      font-size: 0.9em;
+    }
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: $border-radius;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+// media-list.component.scss
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.media-list {
+    height: 100%;
+    overflow-y: auto;
+    background-color: $primary-color;
+    @include scrollbar;
+  
+    &:focus {
+        border: 2px solid blue; /* Or any other style for focus */
+        background-color: rgba(0, 0, 255, 0.1); /* Optional background change on focus */
+    }
+  
+    // Style for the focused item
+    .focused {
+      background-color: lighten($primary-color, 10%);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: white;
+    }
+  }
+  

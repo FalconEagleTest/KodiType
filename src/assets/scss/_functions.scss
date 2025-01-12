@@ -1,0 +1,146 @@
+// _functions.scss
+@function lighten-color($color, $amount) {
+    @return lighten($color, $amount);
+  }
+  
+  @function darken-color($color, $amount) {
+    @return darken($color, $amount);
+  }
+  
+  @function rgba-color($color, $opacity) {
+    @return rgba($color, $opacity);
+  }
+  
+  @function calculate-contrast($color) {
+    $luminance: (red($color) * 0.2126 + green($color) * 0.7152 + blue($color) * 0.0722) / 255;
+    @return if($luminance > 0.5, darken($color, 80%), lighten($color, 80%));
+  }
+  
+  @function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+  }
+  
+  @function rem($size) {
+    $remSize: strip-unit($size) / 16;
+    @return #{$remSize}rem;
+  }
+  
+  // _mixins.scss
+  @mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  @mixin flex-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  @mixin flex-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  @mixin flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @mixin hover-effect {
+    transition: background-color $transition-duration ease;
+    
+    &:hover {
+      background-color: $hover-bg-color;
+      transform: translateX(2px);
+    }
+  }
+  
+  @mixin selected-state {
+    background-color: $selected-bg-color;
+    border-left: 3px solid $accent-color;
+  }
+  
+  @mixin scrollbar {
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background: $primary-color;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: $secondary-color;
+      border-radius: $border-radius;
+      
+      &:hover {
+        background: lighten($secondary-color, 10%);
+      }
+    }
+  }
+  
+  @mixin truncate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  @mixin glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  @mixin responsive($breakpoint) {
+    @if $breakpoint == small {
+      @media (max-width: 576px) { @content; }
+    } @else if $breakpoint == medium {
+      @media (max-width: 768px) { @content; }
+    } @else if $breakpoint == large {
+      @media (max-width: 992px) { @content; }
+    } @else if $breakpoint == xlarge {
+      @media (max-width: 1200px) { @content; }
+    }
+  }
+  
+  @mixin focus-outline {
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px $accent-color;
+    }
+  }
+  
+  @mixin card-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow $transition-duration ease;
+    
+    &:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  @mixin gradient-text {
+    background: linear-gradient(45deg, $accent-color, lighten($accent-color, 20%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  @mixin animate($animation, $duration: 0.3s, $timing: ease) {
+    animation: $animation $duration $timing;
+  }
+  
+  @mixin keyframes($name) {
+    @keyframes #{$name} {
+      @content;
+    }
+  }

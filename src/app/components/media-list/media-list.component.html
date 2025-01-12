@@ -1,0 +1,11 @@
+<div class="media-list" (keydown)="onKeydown($event)" tabindex="0">
+    <app-media-item
+      *ngFor="let item of items; let i = index"
+      [item]="item"
+      [isSelected]="item === selectedItem" 
+      (selected)="onItemSelected(item)"
+      [id]="'media-item-' + i"
+      tabindex="0">
+    </app-media-item>
+  </div>
+  

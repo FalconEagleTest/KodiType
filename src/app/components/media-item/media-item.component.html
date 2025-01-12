@@ -1,0 +1,14 @@
+<div 
+  class="media-item" 
+  [class.selected]="isSelected"
+  (click)="onSelect()"
+  (keydown.enter)="onSelect()"
+  tabindex="0">
+  <div class="media-info">
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.releaseDate | date:'yyyy.MM.dd' }}</p>
+  </div>
+  <div class="thumbnail">
+    <img [src]="item.thumbnailUrl" [alt]="item.title">
+  </div>
+</div>
